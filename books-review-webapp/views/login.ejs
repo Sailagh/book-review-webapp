@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+  </head>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+    <main id="login">
+      <h1>Login</h1>
+      <form action="/login" method="POST">
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required />
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" required />
+        </div>
+        <button class="btn">Log in</button>
+      </form>
+      <p>Not a member?</p>
+      <div id="auth-alternative" class="divButton">
+        <a class="btn btn-alt" href="/signup">Create a new user</a>
+      </div>
+    </main>
+  </body>
+</html>

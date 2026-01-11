@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <h1>Add new book and start a discussion</h1>
+      <form action="/add-book" method="post">
+        <div class="form-control">
+          <label for="title">Book title</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-control">
+          <label for="author_name">Author name</label>
+          <input type="text" id="author" name="author" required />
+        </div>
+        <div class="form-control">
+          <div class="form-control">
+            <label for="type_id">Book genre</label>
+            <select id="type_id" name="type_id" required>
+              <% for(const typ of type) { %>
+              <option value="<%= typ.type_id %>"><%= typ.name %></option>
+              <% } %>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-control">
+          <label for="description">Description</label>
+          <textarea
+            placeholder="Brief description of the plot.."
+            name="description"
+            id="description"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <div class="form-control">
+          <label for="ISBN">ISBN</label>
+          <input type="text" id="ISBN" name="ISBN" required />
+        </div>
+
+        <button>Add Book</button>
+      </form>
+    </main>
+  </body>
+</html>

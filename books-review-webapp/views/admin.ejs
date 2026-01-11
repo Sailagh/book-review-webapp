@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <h1>Admin</h1>
+      <section class="user-list">
+        <h2>User List</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Username</th>
+              <th>Email</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% users.forEach(user => { %>
+            <tr>
+              <td><%= user.username %></td>
+              <td><%= user.email %></td>
+              <td>
+                <form action="/admin/delete/<%= user.user_id %>" method="POST">
+                  <button id="admin" type="submit">Delete</button>
+                </form>
+                <a href="/admin/edit/<%= user.user_id %>">Edit</a>
+              </td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </section>
+    </main>
+  </body>
+</html>

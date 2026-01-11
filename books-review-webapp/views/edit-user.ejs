@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="styles/index.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <h1>Edit user</h1>
+      <form action="/admin/edit/<%= user.user_id %>" method="POST">
+        <label for="username">Username:</label>
+        <input
+          type="text"
+          id="username"
+          name="username"
+          value="<%= user.username %>"
+        />
+        <label for="about">About:</label>
+        <input type="about" id="about" name="about" value="<%= user.about %>" />
+        <label for="about">Profile picture:</label>
+        <input
+          type="profile_picture"
+          id="profile_picture"
+          name="profile_picture"
+          value="<%= user.profile_picture %>"
+        />
+
+        <button type="submit">Update</button>
+      </form>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+    <link rel="stylesheet" href="/styles/reviews.css" />
+  </head>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+    <main>
+      <section class="profile-section">
+        <div class="row">
+          <div class="md-6">
+            <header>
+              <% if (datacka && datacka.length > 0) { %>
+              <h1>Welcome <%= datacka[0].username %></h1>
+              <% } else { %>
+              <h1>Welcome</h1>
+              <% } %>
+            </header>
+          </div>
+          <div class="md-6">
+            <h2>Profile Picture</h2>
+            <% if (datacka[0].profile_picture) {%>
+            <img
+              class="restaurant-img"
+              src="<%=`http://localhost:3000/${datacka[0].profile_picture}`%>"
+              alt="Profile Picture"
+            />
+            <%}%>
+            <form
+              action="/my-page-picture"
+              method="POST"
+              enctype="multipart/form-data"
+            >
+              <div class="form-control">
+                <input type="file" accept="image/*" id="image" name="image" />
+              </div>
+              <button type="submit">Upload</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="container-md mt-3 text-center">
+        <div class="container align-item-center text-center row myRow">
+          <h2>About Me</h2>
+
+          <% if (datacka && datacka.length > 0) { %>
+          <p><%= datacka[0].about %></p>
+          <% } else { %>
+          <p>No information available.</p>
+          <% } %>
+
+          <form action="/my-page-about" method="POST">
+            <textarea
+              name="about"
+              placeholder="Write something about you"
+            ></textarea>
+            <button type="submit">Update</button>
+          </form>
+          <div class="col">
+            <h2>Your Reviews</h2>
+            <% if (datacka.length===0) { %>
+            <p class="homeMainText">You have not written a review yet</p>
+            <% } else { %>
+            <p class="homeMainText">You made <%=datacka.length %> reviews</p>
+            <% } %>
+          </div>
+        </div>
+      </section>
+
+      <section class="container">
+        <ul>
+          <article>
+            <% for(const revi of datacka) { %>
+            <%-include("includes/reviews/review-item", {revi:revi}) %> <% } %>
+          </article>
+        </ul>
+      </section>
+    </main>
+  </body>
+</html>

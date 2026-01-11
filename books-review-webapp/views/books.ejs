@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+    <link rel="stylesheet" href="/styles/books.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <section class="container-md mt-3 text-center">
+        <div class="container align-item-center text-center row myRow">
+          <div class="col">
+            <h1>Books</h1>
+          </div>
+        </div>
+        
+      
+      <% if(book.length===0) { %>
+      <p>No books have been added yet!</br>Be the first one to start a discussion.</p>
+      <% } else { %>
+      <p>Browse books and see what other people though</p>
+      <p> <%= book.length %> books have been added</p>
+      <% }%>
+      <div class="col">
+        <a href="/add-book" class="btn btn-primary">Add new book</a>
+      </div>
+    </section>
+          
+        
+    <section class="container align-item-center text-center row myRow">
+      <ul>
+        <% for(const boki of book) { %> <%-
+        include("includes/books/book-item",{boki:boki}) %> <% } %>  
+      </ul>
+   
+      
+        
+  </section>
+    </main>
+  </body>
+</html>
+  
+      

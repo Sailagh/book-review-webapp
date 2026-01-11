@@ -1,0 +1,62 @@
+main {
+  max-width: 40rem;
+}
+
+form {
+  list-style: none;
+  box-shadow: 0 1px 4px rgba(255, 255, 255, 0.2);
+  padding: 1rem;
+  background-color: rgb(254, 242, 250);
+  text-align: left;
+  border-radius: 10px;
+}
+/*rgb(254, 242, 250); - farba headeru*/
+/*rgb(51, 24, 47); - farba textu*/
+/*rgb(218, 19, 131); - linky*/
+/*rgb(252, 197, 212); - farba na formularoch*/
+/*rgb(252, 135, 166); - farba na formularoch pri selecte*/
+.form-control {
+  margin-bottom: 3px;
+}
+
+label,
+input,
+select {
+  display: block;
+  width: 100%;
+}
+textarea {
+  overflow: auto;
+  outline: none;
+  display: block;
+  width: 100%;
+  font-size: 16px;
+  resize: none;
+  background-color: rgb(252, 197, 212);
+  border: none;
+}
+label {
+  color: rgb(51, 24, 47);
+  margin-bottom: 0.25rem;
+}
+
+input,
+select {
+  font-size: 6px;
+  font: inherit;
+  padding: 0.25rem;
+  border-radius: 4px;
+  background-color: rgb(252, 197, 212);
+  color: rgb(51, 24, 47);
+  box-sizing: border-box;
+  border: none;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  background-color: rgb(252, 135, 166);
+}
+select:focus {
+  width: 40%;
+}

@@ -1,0 +1,27 @@
+<li class="review-item">
+  <article>
+    <h2><%= revi.book_title %></h2>
+    <div class="book-meta">
+      <p><%= revi.revi_description %></p>
+
+      <p>
+        <% for(let i=0; i<5; i++) {%> <% if(i< revi.rating){%>
+        <span>&#9733;</span>
+        <% } else { %>
+        <span>&#9734;</span>
+        <% } %> <% } %>
+      </p>
+    </div>
+    <!--celkom pravidelne sa to kazi, už to parkrát išlo <span>- <%= revi.username %></span> -->
+
+    <div class="review-actions">
+      <% if (locals.user && locals.user.id === revi.user_id) { %>
+      <form action="/reviews/<%= revi.id_a %>/delete" method="post">
+        <button type="submit" class="btn">Delete review</button>
+      </form>
+      <a class="button" href="/reviews/<%= revi.id_a %>/edit">Edit review</a>
+      <% } %>
+      <a href="/books/<%= revi.id_b %>">See book details</a>
+    </div>
+  </article>
+</li>

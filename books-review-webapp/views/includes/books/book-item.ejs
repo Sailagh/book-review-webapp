@@ -1,0 +1,15 @@
+<li class="book-item">
+  <article>
+    <h2><%= boki.title %></h2>
+    <div class="book-meta">
+      <p><%= boki.author_name %></p>
+      <p><%= type.name %></p>
+      <p><%= boki.description %></p>
+      <p><%= boki.iban %></p>
+    </div>
+
+    <div class="book-actions">
+      <a href="/books/<%= boki.id_b %>">View book details</a>
+    </div>
+  </article>
+</li>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+  </head>
+
+  <body>
+    <%- include('includes/header.ejs') %>
+    <main id="signup">
+      <h1>Sign up</h1>
+      <p>Join the community and engage in the discussion.</p>
+      <form action="/signup" method="POST">
+        <div class="form-control">
+          <label for="username">User Name</label>
+          <input
+            type="text"
+            id="username"
+            name="username"
+            value="<%= inputData.username %>"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value="<%= inputData.email %>"
+            required
+          />
+        </div>
+        <div class="form-control">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            value="<%= inputData.password %>"
+            required
+          />
+        </div>
+
+        <div class="form-control">
+          <label for="passwordrepeate" value="<%= inputData.passwordrepeate %>"
+            >Password repeat</label
+          >
+          <input
+            type="password"
+            id="passwordrepeate"
+            name="passwordrepeate"
+            required
+          />
+        </div>
+
+        <button class="btn">Register</button>
+      </form>
+      <div id="auth-alternative" class="divButton">
+        <br />
+        <p>Already a member?</p>
+        <p>Log in instead</p>
+
+        <a href="/login">Login</a>
+      </div>
+    </main>
+  </body>
+</html>

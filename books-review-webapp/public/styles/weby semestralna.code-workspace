@@ -1,0 +1,15 @@
+{
+  "folders": [
+	{
+		"name": "weby semestralna",
+		"path": "../.."
+	},
+	{
+		"name": "public",
+		"path": "../../../../Downloads/p9-final/p9/public"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "weby semestralna"
+  }
+}

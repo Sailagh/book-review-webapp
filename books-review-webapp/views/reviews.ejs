@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+    <link rel="stylesheet" href="/styles/reviews.css" />
+
+  </head>
+  <body>
+    
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+    <section class="container-md mt-3 text-center">
+      <div class="container align-item-center text-center row myRow">
+        <div class="col">
+          <h1>Latest reviews</h1>
+        </div>
+        <div class="col">
+          <a href="/add-review" class="btn btn-primary">Write new review</a>
+        </div>
+      </div>
+      
+      <% if (review.length===0) { %>
+      <p class="homeMainText">There are no reviews yet!</br>Be the first one to share your thoughts.</p>
+      <% } else { %>
+      <p class="homeMainText"><%=review.length %> people already shared their thoughts</p>
+      <% } %>
+    
+    </section>
+
+    <section class="container">
+      <ul id="reviews-list">
+      <article>
+      
+        <% for(const revi of review) { %>
+        <%-include("includes/reviews/review-item", {revi:revi}) %> <% } %>
+      
+    </article>
+  </ul> 
+    </section>
+  </main>
+  </body>
+</html>
+
+   

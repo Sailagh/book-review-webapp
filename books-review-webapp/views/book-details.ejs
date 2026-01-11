@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+    <link rel="stylesheet" href="/styles/books.css" />
+    <script src="/scripts/reviews.js" defer></script>
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <div class="titulok">
+        <h1><%= records.title %></h1>
+        <hr />
+        <p>Author: <%= records.author_name %></p>
+        <hr />
+        <p><%= records.type_id %></p>
+        <hr />
+        <p><%= records.description %></p>
+        <hr />
+        <p>ISBN-<%= records.ISBN %></p>
+      </div>
+      <section class="hiddenReviews">
+        <h2>Reviews</h2>
+        <button id="loadReviews" data-id_b="<%= records.id_b %>">
+          Load reviews
+        </button>
+        <div id="reviewSection"></div>
+        <form action="/books/<%= records.id_b %>/reviews" method="post">
+          <div class="form-control"></div>
+          <div class="form-control">
+            <input
+              type="hidden"
+              name="book_title"
+              value="<%= records.title %>"
+            />
+            <label for="description">Write new review for this book</label>
+            <textarea
+              name="description"
+              id="description"
+              rows="5"
+              required
+            ></textarea>
+          </div>
+          <div class="form-control">
+            <label for="rating">Rating</label>
+            <input
+              type="number"
+              min="0"
+              max="5"
+              id="rating"
+              name="rating"
+              required
+            />
+          </div>
+          <button>Publish review</button>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

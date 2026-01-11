@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include("includes/head.ejs") %>
+    <link rel="stylesheet" href="/styles/recommend.css" />
+  </head>
+  <body>
+    <%- include("includes/header.ejs") %> <%-
+    include("includes/mobile-drawer.ejs") %>
+    <main>
+      <h1>Write review</h1>
+      <form action="/add-review" method="post">
+        <div class="form-control">
+          <label for="book_title">Book title</label>
+          <input type="book_title" id="book_title" name="book_title" required />
+        </div>
+        <div class="form-control">
+          <label for="description">Your precious opinion</label>
+          <textarea
+            name="description"
+            id="description"
+            rows="5"
+            required
+          ></textarea>
+        </div>
+        <div class="form-control">
+          <label for="rating">Rating</label>
+          <input
+            type="number"
+            min="0"
+            max="5"
+            id="rating"
+            name="rating"
+            required
+          />
+        </div>
+        <button>Publish review</button>
+      </form>
+    </main>
+  </body>
+</html>
